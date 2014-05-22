@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>User Photos</title>
+  
+  <meta name="viewport" content="width=device-width, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
+
+  <link rel="stylesheet" href="Jquery/jquery.mobile.structure-1.3.1.css" /> 
+
+  <link rel="stylesheet" href="css/style.css" />  
+  <link rel="stylesheet" href="Jquerymobile/jquery.mobile-1.1.0.min.css" />
+    
+  <script src="Jquery/jquery-1.9.1.min.js"></script>  
+  
+  <script src="Jquery/jquery.mobile-1.3.1.min.js"></script>
+  
+  <!--  <script src="Js/Common.js"></script>-->
+	
+  <!-- for notifications tooltip -->
+  <link rel="stylesheet" type="text/css" href="css/tooltipster.css" />
+	
+<!--   <script type="text/javascript" src="Js/jquery.tooltipster.js"></script> -->
+<script type="text/javascript">
+//http://translate.google.com/translate_tts?ie=UTF-8&q=Hello%20World&tl=en-us
+		
+function texttospeech(){
+	/*  var text = $("#textspeech").val();
+	 window.location = "http://translate.google.com/translate_tts?ie=UTF-8&q="+text+"&tl=en-us" ; */
+	 //var audio = $("#audiotag1");
+	 //audio.src ='http://translate.google.com/translate_tts?ie=UTF-8&q='+text+'&tl=en-us';
+	/* // audio.play();
+	var audio = new Audio();
+	
+	audio.src ="http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Hello%20World.";
+	audio.play(); */
+	$.ajax({
+		type :"GET",
+		url : "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Hello%20World.",
+		data : "",
+		dataType :"JSONP",
+		success: function(data){
+			console.log(data);
+		},
+		error : function(xhr, status, error) {
+			alert("No Connection Established");           
+			//alert("No Connection Established");
+		}
+	});
+} 
+
+</script>
+
+</head>
+<body  class="test">
+    <div data-role="page" id="page1" data-theme="d">
+    <!-- 
+    <!-- End Side Navigation -->
+    
+    <!-- Header -->
+	    
+    <!-- End Header -->
+    <!--Header -->
+    <div data-role="content"> 
+    	<input type="text" value ="" id='textspeech'>
+    	<input type="button" value='Listen' onclick="texttospeech();">
+    	
+    	<audio id="audiotag1" src = "" preload="auto"></audio>
+	</div>
+    <!-- End Content -->
+    <!-- End Content -->  
+		
+  </div><!-- /page -->
+
+</body>
+</html>
